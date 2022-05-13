@@ -1,19 +1,19 @@
-import discord, os
+import discord, os, asyncio
 from discord.ext.commands import Bot
 from discord.ext import commands
 
 
-#intents = discord.Intents.default()
-#intents.members = True
-#intents.message_content = True
-bot = commands.Bot(command_prefix='$', intents=discord.Intents.all()())
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix='$', intents=intents)
 print("Bot Online.")
 
-@bot.event()
-async def ping(ctx):
-    await ctx.send('pong')
+@bot.command()
+async def on_message(message):
+  if message.content.startswith('Ping'):
+    channel = message.channel
+    await channel.send("Pong")
 
-#token = os.environ['token']
-bot.run("OTc0MjczNDMzODQ2MzA0NzY4.Gy8h8W.NZZ0UQBPPO4odbCFTLM2Cp7-f8WImgUftz7fmk")
+token = os.environ['token']
+bot.run(token)
 
 # https://discord.com/api/oauth2/authorize?client_id=974273433846304768&permissions=2214841408&scope=bot
