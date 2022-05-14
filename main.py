@@ -6,12 +6,18 @@ bot = commands.Bot(command_prefix='?')
 
 @bot.event
 async def on_ready():
-  print("logged in as {0.user}".format(bot))
+  print("Logged in as {0.user}".format(bot))
 
 @bot.event
 async def on_message(message):
-  if message.content.startswith("Ping"):
-    await message.channel.send("Pong")
+  username = str(message.author).split('#')[0]
+  if message.content.startswith("slay"):  
+    if username == "Atrazine":
+       await message.channel.send("Slay indeed father.")
+    else:
+      await message.channel.send("Slay indeed.")
+  if message.content.startswith("Hello"):
+    await message.channel.send("Hi, {}.".format(username))
   
 
 
