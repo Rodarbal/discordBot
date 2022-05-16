@@ -1,3 +1,5 @@
+# scraped version as in like a month the library this bot uses stops working (moved to js)
+
 import discord, os, asyncio, random
 from discord.ext import commands
 from discord.ext.commands import Bot
