@@ -18,9 +18,9 @@ async def ban(ctx, member : discord.Member, *, reason=None):
 @bot.event
 async def on_message(message):
   username = str(message.author).split('#')[0]
-  if message.content.startswith("slay"):  
+  if message.content.startswith("Hiii"):  
     if username == "Atrazine":
-       await message.channel.send("Slay indeed father.")
+       await message.channel.send("Hello father.")
     else:
       await message.channel.send("Slay indeed.")
   elif message.content.startswith("Hello"):
